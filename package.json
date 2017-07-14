@@ -12,7 +12,20 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "jest",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "automock": true,
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react",
+      "<rootDir>/node_modules/react-dom",
+      "<rootDir>/node_modules/react-addons-test-utils",
+      "<rootDir>/node_modules/fbjs",
+      "<rootDir>/node_modules/enzyme",
+      "<rootDir>/node_modules/sinon",
+      "<rootDir>/node_modules/redux",
+      "<rootDir>/node_modules/react-redux"
+    ]
   }
 }

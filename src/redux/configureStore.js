@@ -9,8 +9,11 @@ import DevTools from './devtools/DevTools';
  * --------------------*/
 //日志输出
 const loggerMiddleware = createLogger()
+const primeMiddleware = (store) => (next) => (action) => {
+    action && next(action)
+}
 //创建中间件容器
-const middleware = [loggerMiddleware] 
+const middleware = [ primeMiddleware, loggerMiddleware]
 //扩展中间件和调试功能
 const extendedCreateStore = compose(
     applyMiddleware(...middleware),
@@ -35,8 +38,6 @@ export const actions = {
             store.dispatch
         )
 }
-
-
 
 
 
